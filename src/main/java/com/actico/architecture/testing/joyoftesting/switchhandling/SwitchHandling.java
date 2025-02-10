@@ -1,5 +1,6 @@
 package com.actico.architecture.testing.joyoftesting.switchhandling;
 
+//@NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class SwitchHandling {
 
     public enum Switch {
@@ -16,5 +17,4 @@ public class SwitchHandling {
                 return "Switch is in unknown state";
         }
     }
-
 }

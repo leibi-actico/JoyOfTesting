@@ -41,9 +41,14 @@ dependencies {
 
 
 tasks.jacocoTestReport {
+    dependsOn(tasks.test)
     reports {
         xml.required = true
     }
+}
+
+tasks.test {
+    finalizedBy(tasks.jacocoTestReport)
 }
 
 
@@ -55,7 +60,7 @@ tasks.jacocoTestCoverageVerification {
                 counter = "LINE"
                 value = "COVEREDRATIO"
                 minimum = BigDecimal.valueOf(0.95)
-                    }
+            }
             excludes = listOf("com.actico.architecture.testing.joyoftesting.JoyOfTestingApplication")
         }
 
