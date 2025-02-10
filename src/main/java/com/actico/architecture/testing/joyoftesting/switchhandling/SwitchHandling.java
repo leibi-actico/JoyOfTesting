@@ -1,4 +1,4 @@
-package com.actico.architecture.testing.joyoftesting;
+package com.actico.architecture.testing.joyoftesting.switchhandling;
 
 public class SwitchHandling {
 
