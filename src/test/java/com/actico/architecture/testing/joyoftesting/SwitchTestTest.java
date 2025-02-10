@@ -38,11 +38,9 @@ class SwitchTestTest {
     @ParameterizedTest
     @EnumSource(SwitchTest.Switch.class)
     void switchExpressions(SwitchTest.Switch s) {
-        if (s == SwitchTest.Switch.ON) {
-            assertThat(SwitchTest.switchExpressions(s)).isEqualTo("Switch is ON");
-        } else if (s == SwitchTest.Switch.OFF) {
-            assertThat(SwitchTest.switchExpressions(s)).isEqualTo("Switch is OFF");
+        switch (s){
+            case ON -> assertThat(SwitchTest.switchExpressions(s)).isEqualTo("Switch is ON");
+            case OFF -> assertThat(SwitchTest.switchExpressions(s)).isEqualTo("Switch is OFF");
         }
     }
-
 }
