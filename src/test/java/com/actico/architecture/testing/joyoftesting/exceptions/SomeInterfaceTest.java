@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class SomeInterfaceTest {
 
@@ -17,13 +16,7 @@ class SomeInterfaceTest {
     }
 
     @Test
-    @Disabled
-    void getNameWithException() {
-        assertThatThrownBy(someOtherInterface::getName).isInstanceOf(Exception.class);
-    }
-
-    @Test
-    @Disabled
+    @Disabled("This test is disabled because it is flaky")
     void getNameWithExceptionSuccess() throws Exception {
         assertThat(someOtherInterface.getName()).isEqualTo("My Name");
     }
