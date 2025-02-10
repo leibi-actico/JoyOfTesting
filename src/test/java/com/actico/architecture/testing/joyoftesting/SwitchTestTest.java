@@ -11,36 +11,23 @@ class SwitchTestTest {
 
     @Test
     void oldSchool() {
-        assertThat(SwitchTest.oldSchool(SwitchTest.Switch.ON)).isEqualTo("Switch is ON");
-        assertThat(SwitchTest.oldSchool(SwitchTest.Switch.OFF)).isEqualTo("Switch is OFF");
+        assertThat(SwitchHandling.oldSchool(SwitchHandling.Switch.ON)).isEqualTo("Switch is ON");
+        assertThat(SwitchHandling.oldSchool(SwitchHandling.Switch.OFF)).isEqualTo("Switch is OFF");
     }
 
-    @Test
-    void switchExpressions() {
-        assertThat(SwitchTest.switchExpressions(SwitchTest.Switch.ON)).isEqualTo("Switch is ON");
-        assertThat(SwitchTest.switchExpressions(SwitchTest.Switch.OFF)).isEqualTo("Switch is OFF");
-    }
 
 
     @ParameterizedTest
-    @EnumSource(SwitchTest.Switch.class)
-    void oldSchool(SwitchTest.Switch s) {
-        if (s == SwitchTest.Switch.ON) {
-            assertThat(SwitchTest.oldSchool(s)).isEqualTo("Switch is ON");
-        } else if (s == SwitchTest.Switch.OFF) {
-            assertThat(SwitchTest.oldSchool(s)).isEqualTo("Switch is OFF");
+    @EnumSource(SwitchHandling.Switch.class)
+    void oldSchool(SwitchHandling.Switch s) {
+        if (s == SwitchHandling.Switch.ON) {
+            assertThat(SwitchHandling.oldSchool(s)).isEqualTo("Switch is ON");
+        } else if (s == SwitchHandling.Switch.OFF) {
+            assertThat(SwitchHandling.oldSchool(s)).isEqualTo("Switch is OFF");
         } else {
-            assertThat(SwitchTest.oldSchool(s)).isEqualTo("Switch is in unknown state");
+            assertThat(SwitchHandling.oldSchool(s)).isEqualTo("Switch is in unknown state");
         }
 
     }
 
-    @ParameterizedTest
-    @EnumSource(SwitchTest.Switch.class)
-    void switchExpressions(SwitchTest.Switch s) {
-        switch (s){
-            case ON -> assertThat(SwitchTest.switchExpressions(s)).isEqualTo("Switch is ON");
-            case OFF -> assertThat(SwitchTest.switchExpressions(s)).isEqualTo("Switch is OFF");
-        }
-    }
 }

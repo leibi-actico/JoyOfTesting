@@ -1,6 +1,6 @@
 package com.actico.architecture.testing.joyoftesting;
 
-public class SwitchTest {
+public class SwitchHandling {
 
     public enum Switch {
         ON, OFF
@@ -15,14 +15,6 @@ public class SwitchTest {
             default:
                 return "Switch is in unknown state";
         }
-    }
-
-
-    public static String switchExpressions(Switch s) {
-        return switch (s) {
-            case ON -> "Switch is ON";
-            case OFF -> "Switch is OFF";
-        };
     }
 
 }
