@@ -20,8 +20,6 @@ public class CLClass {
         record Coffee(String description, String image, List<String> ingredients, String title, int id) {
         }
         var hotCoffeeRequest = HttpRequest.newBuilder().uri(new URI("https://api.sampleapis.com/coffee/hot")).GET().build();
-
-
         var icedCoffeeRequest = HttpRequest.newBuilder().uri(new URI("https://api.sampleapis.com/coffee/hot")).GET().build();
 
 
@@ -34,6 +32,8 @@ public class CLClass {
             var response = client.send(hotCoffeeRequest, HttpResponse.BodyHandlers.ofString());
             coffeeList = objectMapper.readValue(response.body(), new TypeReference<>() {
             });
+
+
         }
 
         try (var client = HttpClient.newHttpClient()) {
@@ -42,8 +42,12 @@ public class CLClass {
             objectMapper.enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
             objectMapper.enable(DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT);
             var response = client.send(icedCoffeeRequest, HttpResponse.BodyHandlers.ofString());
-            coffeeList.addAll(objectMapper.readValue(response.body(), new TypeReference<List<Coffee>>() {
+            List<Coffee> tmp = (objectMapper.readValue(response.body(), new TypeReference<List<Coffee>>() {
             }));
+            coffeeList.addAll(tmp.stream().filter(coffee -> coffee.ingredients() != null)
+                    .filter(coffee -> !coffee.ingredients().contains("sugar"))
+                    .distinct()
+                    .toList());
         }
 
         return coffeeList.stream()
