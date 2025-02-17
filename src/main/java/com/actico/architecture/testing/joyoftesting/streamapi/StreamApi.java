@@ -1,8 +1,11 @@
 package com.actico.architecture.testing.joyoftesting.streamapi;
 
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 import java.util.Optional;
 
+@NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class StreamApi {
 
     public static List<Integer> getEvenNumbersBiggerThanTen(List<Integer> numbers) {
