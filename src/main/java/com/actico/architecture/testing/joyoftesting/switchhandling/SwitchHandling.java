@@ -1,6 +1,6 @@
 package com.actico.architecture.testing.joyoftesting.switchhandling;
 
-//@NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
+
 public class SwitchHandling {
 
     public enum Switch {
