@@ -67,6 +67,11 @@ tasks.jacocoTestCoverageVerification {
                 value = "COVEREDRATIO"
                 minimum = BigDecimal.valueOf(0.95)
             }
+            limit {
+                counter = "BRANCH"
+                value = "COVEREDRATIO"
+                minimum = BigDecimal.valueOf(0.95)
+            }
             excludes = listOf("com.actico.architecture.testing.joyoftesting.JoyOfTestingApplication")
         }
 
