@@ -19,4 +19,17 @@ class TryWithRessourcesTest {
         assertThat(tryWithRessources.readFirstLineFromFile(path)).isEmpty();
     }
 
+
+    @Test
+    void testreadFirstLineFromFileWithExplicitCheckBeforeTheTry() {
+        String path = "src/test/resources/test.txt";
+        assertThat(tryWithRessources.readFirstLineFromFileWithExplicitCheckBeforeTheTry(path)).isPresent().contains("Hello World");
+    }
+
+    @Test
+    void testRreadFirstLineFromFileWithExplicitCheckBeforeTheTryWhichIsNotAvailable() {
+        String path = "src/test/resources/notExisting.txt";
+        assertThat(tryWithRessources.readFirstLineFromFileWithExplicitCheckBeforeTheTry(path)).isEmpty();
+    }
+
 }
