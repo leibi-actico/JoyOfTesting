@@ -68,10 +68,27 @@ tasks.jacocoTestCoverageVerification {
                 minimum = BigDecimal.valueOf(0.95)
             }
             limit {
+                counter = "INSTRUCTION"
+                value = "COVEREDRATIO"
+                minimum = BigDecimal.valueOf(0.95)
+            }
+            limit {
                 counter = "BRANCH"
                 value = "COVEREDRATIO"
                 minimum = BigDecimal.valueOf(0.95)
             }
+            limit {
+                counter = "COMPLEXITY"
+                value = "TOTALCOUNT"
+                maximum = BigDecimal.valueOf(5)
+            }
+            /*
+            limit {
+                counter = "LINE"
+                value = "TOTALCOUNT"
+                maximum = BigDecimal.valueOf(20)
+            }
+             */
             excludes = listOf("com.actico.architecture.testing.joyoftesting.JoyOfTestingApplication")
         }
 
